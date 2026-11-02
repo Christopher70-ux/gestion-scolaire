@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Spark Admin</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/libs/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-bg-shape login-bg-shape-1"></div>
+        <div class="login-bg-shape login-bg-shape-2"></div>
+
+        <div class="login-card">
+
+            <a href="index.html" class="login-brand text-decoration-none">
+                <i class="bi bi-asterisk"></i>
+                <span>Spark Admin</span>
+            </a>
+
+            <p class="login-subtitle">Créez votre compte pour continuer</p>
+
+            <!-- ⚠️ NOUVEAU : zone de message (erreur/succès) -->
+            <div id="message" style="display: none; padding: 12px; 
+                                     border-radius: 8px; margin-bottom: 16px;
+                                     font-size: 14px;">
+            </div>
+
+            <form action="/monapp/inscription" method="post" id="registerForm">
+
+                <!-- Nom -->
+                <div class="login-form-group">
+                    <label for="nom" class="login-form-label">Nom</label>
+                    <div class="login-input-group">
+                        <i class="bi bi-person input-icon"></i>
+                        <input type="text" name="nom" id="nom" class="login-input" placeholder="Votre nom" required
+                            minlength="2">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="login-form-group">
+                    <label for="email" class="login-form-label">Email Address</label>
+                    <div class="login-input-group">
+                        <i class="bi bi-envelope input-icon"></i>
+                        <input type="email" name="email" id="email" class="login-input" placeholder="name@company.com"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="login-form-group">
+                    <label for="motDePasse" class="login-form-label">Password</label>
+                    <div class="login-input-group">
+                        <i class="bi bi-shield-lock input-icon"></i>
+                        <input type="password" name="motDePasse" id="motDePasse"
+                            class="login-input login-input-password" placeholder="••••••••" required minlength="8">
+                        <button type="button" class="password-toggle-btn" id="toggle-password"
+                            aria-label="Show password">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ⚠️ NOUVEAU : Confirmation -->
+                <div class="login-form-group">
+                    <label for="confirmation" class="login-form-label">Confirm Password</label>
+                    <div class="login-input-group">
+                        <i class="bi bi-shield-lock input-icon"></i>
+                        <input type="password" name="confirmation" id="confirmation" class="login-input"
+                            placeholder="••••••••" required minlength="8">
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-login" id="btn-submit">
+                    <span>Créer mon compte</span>
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </form>
+
+            <div class="login-divider">Ou inscrivez-vous avec</div>
+
+            <div class="social-login-grid">
+                <button class="btn-social" type="button" id="btn-google">
+                    <i class="bi bi-google text-danger"></i>
+                    <span>Google</span>
+                </button>
+                <button class="btn-social" type="button" id="btn-github">
+                    <i class="bi bi-github"></i>
+                    <span>GitHub</span>
+                </button>
+            </div>
+
+            <p class="login-footer-text">
+                Vous avez déjà un compte ? <a href="connexion.html" id="link-login">Se connecter</a>
+            </p>
+
+        </div>
+    </div>
+
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <!-- ⚠️ NOUVEAU : le fetch -->
+    <script src="assets/js/inscription.js"></script>
+</body>
+
+</html>
