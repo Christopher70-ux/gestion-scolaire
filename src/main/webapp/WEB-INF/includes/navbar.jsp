@@ -48,6 +48,13 @@
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
+          <li class="px-3 py-2 border-bottom">
+            <div class="small text-muted">Connecté</div>
+            <div class="fw-semibold"><%= userNom %></div>
+            <% if (userEmail != null && !userEmail.isBlank()) { %>
+              <div class="small text-muted"><%= userEmail %></div>
+            <% } %>
+          </li>
           <li><a class="dropdown-item" href="/monapp/dashboard"><i class="bi bi-grid"></i> Dashboard</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profil</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Paramètres</a></li>

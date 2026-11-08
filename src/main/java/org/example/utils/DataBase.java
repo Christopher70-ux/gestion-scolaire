@@ -1,12 +1,20 @@
 package org.example.utils;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DataBase {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/monapp";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String URL = getEnv("DB_URL",
+            "jdbc:mysql://localhost:3306/monapp?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC");
+    private static final String USER = getEnv("DB_USER", "root");
+    private static final String PASSWORD = getEnv("DB_PASSWORD", "root");
+
+    private static String getEnv(String key, String defaultValue) {
+        String value = System.getenv(key);
+        return (value != null && !value.isEmpty()) ? value : defaultValue;
+    }
 
     static {
         try {
@@ -17,11 +25,6 @@ public class DataBase {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-                URL,
-                USER,
-                PASSWORD
-        );
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
-
 }

@@ -414,4 +414,40 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // -----------------------------------------------------------------
+    // 8. Real dashboard stats from the application backend
+    // -----------------------------------------------------------------
+    const statMap = {
+        etudiants: document.querySelector('#stat-etudiants'),
+        cours: document.querySelector('#stat-cours'),
+        notes: document.querySelector('#stat-notes'),
+        bulletins: document.querySelector('#stat-bulletins')
+    };
+
+    const loadStats = async () => {
+        const endpoints = [
+            { key: 'etudiants', url: '/monapp/api/etudiants' },
+            { key: 'cours', url: '/monapp/api/cours' },
+            { key: 'notes', url: '/monapp/api/notes' },
+            { key: 'bulletins', url: '/monapp/api/bulletins' }
+        ];
+
+        for (const item of endpoints) {
+            const el = statMap[item.key];
+            if (!el) continue;
+
+            try {
+                const response = await fetch(item.url, { credentials: 'same-origin' });
+                const payload = await response.json();
+                const value = payload && typeof payload.count === 'number' ? payload.count : 0;
+                el.textContent = new Intl.NumberFormat('fr-FR').format(value);
+            } catch (error) {
+                console.warn('Dashboard stats unavailable for ' + item.key, error);
+                el.textContent = '0';
+            }
+        }
+    };
+
+    loadStats();
 });

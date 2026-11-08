@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | MonApp</title>
+
+  <link rel="icon" type="image/png" href="/monapp/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/monapp/assets/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/monapp/assets/libs/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="/monapp/assets/libs/apexcharts/apexcharts.css">
+  <link rel="stylesheet" href="/monapp/assets/libs/flatpickr/flatpickr.min.css">
+  <link rel="stylesheet" href="/monapp/assets/css/main.css">
+</head>
+<body>
+  
+
+
+<div class="sidebar-wrapper" id="sidebar">
+  <a href="/monapp/dashboard" class="sidebar-brand">
+    <i class="bi bi-asterisk"></i>
+    <span>Spark Admin</span>
+  </a>
+
+  <div class="flex-grow-1 overflow-y-auto">
+    <div class="sidebar-menu-section">
+      <div class="sidebar-menu-title">Menu</div>
+      <ul class="sidebar-menu-list">
+        <li class="sidebar-menu-item">
+          <a href="/monapp/dashboard" class="sidebar-menu-link active" id="menu-overview">
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-menu-section">
+      <div class="sidebar-menu-title">Gestion</div>
+      <ul class="sidebar-menu-list">
+        <li class="sidebar-menu-item">
+          <a href="/monapp/tables-etudiants" class="sidebar-menu-link " id="menu-etudiants">
+            <i class="bi bi-people-fill"></i>
+            <span>Étudiants</span>
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a href="/monapp/tables-cours" class="sidebar-menu-link " id="menu-cours">
+            <i class="bi bi-book-fill"></i>
+            <span>Cours</span>
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a href="/monapp/tables-notes" class="sidebar-menu-link " id="menu-notes">
+            <i class="bi bi-clipboard-data-fill"></i>
+            <span>Notes</span>
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a href="/monapp/tables-bulletins" class="sidebar-menu-link " id="menu-bulletins">
+            <i class="bi bi-file-earmark-text-fill"></i>
+            <span>Bulletins</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-menu-section">
+      <div class="sidebar-menu-title">Divers</div>
+      <ul class="sidebar-menu-list">
+        <li class="sidebar-menu-item">
+          <a href="/monapp/ui-forms" class="sidebar-menu-link " id="menu-forms">
+            <i class="bi bi-ui-checks-grid"></i>
+            <span>Formulaires</span>
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a href="/monapp/ui-buttons" class="sidebar-menu-link " id="menu-buttons">
+            <i class="bi bi-square"></i>
+            <span>Boutons</span>
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a href="/monapp/page-blank" class="sidebar-menu-link " id="menu-blank">
+            <i class="bi bi-file-earmark"></i>
+            <span>Vide</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sidebar-profile">
+    <img src="/monapp/assets/images/avatar.png" alt="Administrator" class="sidebar-profile-img"
+      onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop'">
+    <div class="sidebar-profile-info">
+      <div class="sidebar-profile-name">Administrator</div>
+      <div class="sidebar-profile-email">admin@email.com</div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="main-wrapper">
+    
+
+
+<header class="navbar-custom">
+  <div class="navbar-left">
+    <button class="sidebar-toggle-btn me-2" id="sidebar-toggle" aria-label="Toggle Navigation">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <div class="dropdown ms-2">
+      <button class="btn-quick-action dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="quick-actions-dropdown">
+        <i class="bi bi-plus-lg"></i>
+        <span>Create</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-quick-action" aria-labelledby="quick-actions-dropdown">
+        <li class="dropdown-header">Quick Action Shortcuts</li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-plus"></i> New Invoice</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus"></i> New User</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-box-seam"></i> New Product</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> System Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="navbar-search-wrapper">
+    <input type="text" class="navbar-search-input" placeholder="Search anything in Spark..." id="main-search">
+    <button class="navbar-search-btn" aria-label="Search">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+
+  <div class="navbar-actions">
+    <button class="navbar-action-btn me-1" aria-label="Toggle Fullscreen" id="btn-fullscreen">
+      <i class="bi bi-arrows-fullscreen"></i>
+    </button>
+
+    
+      <div class="dropdown ms-2">
+        <button class="navbar-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="profile-dropdown">
+          <img src="/monapp/assets/images/avatar.png" alt="Profile Image" class="navbar-profile-img">
+          <span class="navbar-profile-name">Administrateur</span>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
+          <li><a class="dropdown-item" href="/monapp/dashboard"><i class="bi bi-grid"></i> Dashboard</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profil</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Paramètres</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <form action="/monapp/logout" method="post" class="d-inline w-100">
+              <button type="submit" class="dropdown-item text-danger w-100 text-start border-0 bg-transparent">
+                <i class="bi bi-box-arrow-right"></i> Déconnexion
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    
+  </div>
+</header>
+
+
+    <main class="page-content">
+      <div class="container-fluid py-4">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body">
+                <h6 class="text-muted">Étudiants</h6>
+                <h3 class="mb-0">1,248</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body">
+                <h6 class="text-muted">Cours</h6>
+                <h3 class="mb-0">64</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body">
+                <h6 class="text-muted">Notes</h6>
+                <h3 class="mb-0">9,832</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body">
+                <h6 class="text-muted">Bulletins</h6>
+                <h3 class="mb-0">420</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    
+
+<footer class="app-footer">
+  <div class="container-fluid d-flex justify-content-between align-items-center py-3">
+    <span>© 2026 MonApp</span>
+    <span>Propulsé par Spark Admin</span>
+  </div>
+</footer>
+
+  </div>
+
+  <script src="/monapp/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/monapp/assets/libs/apexcharts/apexcharts.min.js"></script>
+  <script src="/monapp/assets/js/dashboard.js"></script>
+</body>
+</html>

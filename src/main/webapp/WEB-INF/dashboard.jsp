@@ -1,4 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    request.setAttribute("activePage", "/dashboard");
+    HttpSession sessionUser = request.getSession(false);
+    String userNom = sessionUser != null ? (String) sessionUser.getAttribute("userNom") : "Utilisateur";
+%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,12 +26,19 @@
 
     <main class="page-content">
       <div class="container-fluid py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h1 class="h3 mb-1">Bienvenue, <%= userNom %></h1>
+            <p class="text-muted mb-0">Vue d’ensemble de la plateforme</p>
+          </div>
+        </div>
+
         <div class="row g-4">
           <div class="col-md-3">
             <div class="card shadow-sm border-0 h-100">
               <div class="card-body">
                 <h6 class="text-muted">Étudiants</h6>
-                <h3 class="mb-0">1,248</h3>
+                <h3 class="mb-0" id="stat-etudiants">0</h3>
               </div>
             </div>
           </div>
@@ -34,7 +46,7 @@
             <div class="card shadow-sm border-0 h-100">
               <div class="card-body">
                 <h6 class="text-muted">Cours</h6>
-                <h3 class="mb-0">64</h3>
+                <h3 class="mb-0" id="stat-cours">0</h3>
               </div>
             </div>
           </div>
@@ -42,7 +54,7 @@
             <div class="card shadow-sm border-0 h-100">
               <div class="card-body">
                 <h6 class="text-muted">Notes</h6>
-                <h3 class="mb-0">9,832</h3>
+                <h3 class="mb-0" id="stat-notes">0</h3>
               </div>
             </div>
           </div>
@@ -50,7 +62,7 @@
             <div class="card shadow-sm border-0 h-100">
               <div class="card-body">
                 <h6 class="text-muted">Bulletins</h6>
-                <h3 class="mb-0">420</h3>
+                <h3 class="mb-0" id="stat-bulletins">0</h3>
               </div>
             </div>
           </div>

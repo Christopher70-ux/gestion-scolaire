@@ -55,29 +55,6 @@
       </ul>
     </div>
 
-    <div class="sidebar-menu-section">
-      <div class="sidebar-menu-title">Divers</div>
-      <ul class="sidebar-menu-list">
-        <li class="sidebar-menu-item">
-          <a href="/monapp/ui-forms" class="sidebar-menu-link <%= "/ui-forms".equals(activePage) ? "active" : "" %>" id="menu-forms">
-            <i class="bi bi-ui-checks-grid"></i>
-            <span>Formulaires</span>
-          </a>
-        </li>
-        <li class="sidebar-menu-item">
-          <a href="/monapp/ui-buttons" class="sidebar-menu-link <%= "/ui-buttons".equals(activePage) ? "active" : "" %>" id="menu-buttons">
-            <i class="bi bi-square"></i>
-            <span>Boutons</span>
-          </a>
-        </li>
-        <li class="sidebar-menu-item">
-          <a href="/monapp/page-blank" class="sidebar-menu-link <%= "/page-blank".equals(activePage) ? "active" : "" %>" id="menu-blank">
-            <i class="bi bi-file-earmark"></i>
-            <span>Vide</span>
-          </a>
-        </li>
-      </ul>
-    </div>
   </div>
 
   <div class="sidebar-profile">
