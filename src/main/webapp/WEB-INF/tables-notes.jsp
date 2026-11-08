@@ -48,7 +48,7 @@
                     <th>Étudiant</th>
                     <th>Cours</th>
                     <th>Note</th>
-                    <th>Coeff.</th>
+                    <th>Coeff</th>
                     <th>Points</th>
                     <th>Date</th>
                     <th>Actions</th>
