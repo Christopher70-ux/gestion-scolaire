@@ -1,6 +1,6 @@
 // assets/js/cours.js
 
-const API = '/monapp/api/cours';
+const API = '/api/cours';
 
 let idASupprimer = null;
 let idAModifier = null;

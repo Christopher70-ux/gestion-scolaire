@@ -427,10 +427,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const loadStats = async () => {
         const endpoints = [
-            { key: 'etudiants', url: '/monapp/api/etudiants' },
-            { key: 'cours', url: '/monapp/api/cours' },
-            { key: 'notes', url: '/monapp/api/notes' },
-            { key: 'bulletins', url: '/monapp/api/bulletins' }
+            { key: 'etudiants', url: '/api/etudiants' },
+            { key: 'cours', url: '/api/cours' },
+            { key: 'notes', url: '/api/notes' },
+            { key: 'bulletins', url: '/api/bulletins' }
         ];
 
         for (const item of endpoints) {

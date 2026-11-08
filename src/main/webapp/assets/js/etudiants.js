@@ -1,6 +1,6 @@
 // assets/js/membres.js
 
-const API = '/monapp/api/etudiants';   // ← adapte à ton contextPath
+const API = '/api/etudiants';   // ← adapte à ton contextPath
 
 let idASupprimer = null;
 let idAModifier = null;

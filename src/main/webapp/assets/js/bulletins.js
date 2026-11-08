@@ -1,6 +1,6 @@
 // assets/js/bulletins.js
 
-const API_BULLETINS = '/monapp/api/bulletins';
+const API_BULLETINS = '/api/bulletins';
 
 let tousLesBulletins = [];
 
@@ -59,7 +59,7 @@ async function chargerBulletins(query = '') {
                                     onclick="ouvrirBulletin(${b.etudiantId})" title="Voir">
                                 <i class="bi bi-eye"></i>
                             </button>
-                            <a href="/monapp/api/export/bulletin/${b.etudiantId}" 
+                            <a href="/api/export/bulletin/${b.etudiantId}" 
                                class="btn btn-sm btn-outline-primary" title="Exporter CSV">
                                 <i class="bi bi-file-earmark-arrow-down"></i>
                             </a>
@@ -117,7 +117,7 @@ function ouvrirBulletin(etudiantId) {
 
     // Lien d'export
     document.getElementById('bExportCsv').href = 
-        `/monapp/api/export/bulletin/${etudiantId}`;
+        `/api/export/bulletin/${etudiantId}`;
 
     new bootstrap.Modal(document.getElementById('bulletinModal')).show();
 }

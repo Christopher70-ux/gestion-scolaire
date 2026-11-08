@@ -85,7 +85,7 @@
                             <artifactId>monapp</artifactId>
                             <type>war</type>
                             <properties>
-                                <context>/monapp</context>
+                                <context>/</context>
                             </properties>
                         </deployable>
                     </deployables>

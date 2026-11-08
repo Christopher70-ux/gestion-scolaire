@@ -21,7 +21,7 @@ FROM tomcat:10.1-jdk21-temurin
 # Supprimer les applications par défaut de Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copier le WAR dans le contexte attendu par le front /monapp
+# Déployer le WAR à la racine de Tomcat, sans contexte /monapp
 COPY --from=builder /build/target/monapp.war /usr/local/tomcat/webapps/ROOT.war
 
 # Exposer le port

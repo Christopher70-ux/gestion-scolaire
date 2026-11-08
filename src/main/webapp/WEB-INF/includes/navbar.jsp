@@ -43,7 +43,7 @@
     <% if (isConnected) { %>
       <div class="dropdown ms-2">
         <button class="navbar-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="profile-dropdown">
-          <img src="/monapp/assets/images/avatar.png" alt="Profile Image" class="navbar-profile-img">
+          <img src="assets/images/avatar.png" alt="Profile Image" class="navbar-profile-img">
           <span class="navbar-profile-name"><%= userNom %></span>
         </button>
 
@@ -55,12 +55,12 @@
               <div class="small text-muted"><%= userEmail %></div>
             <% } %>
           </li>
-          <li><a class="dropdown-item" href="/monapp/dashboard"><i class="bi bi-grid"></i> Dashboard</a></li>
+          <li><a class="dropdown-item" href="dashboard"><i class="bi bi-grid"></i> Dashboard</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profil</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Paramètres</a></li>
           <li><hr class="dropdown-divider"></li>
           <li>
-            <form action="/monapp/logout" method="post" class="d-inline w-100">
+            <form action="logout" method="post" class="d-inline w-100">
               <button type="submit" class="dropdown-item text-danger w-100 text-start border-0 bg-transparent">
                 <i class="bi bi-box-arrow-right"></i> Déconnexion
               </button>
@@ -69,8 +69,8 @@
         </ul>
       </div>
     <% } else { %>
-      <a class="btn btn-outline-light me-2" href="/monapp/connexion.html">Connexion</a>
-      <a class="btn btn-primary" href="/monapp/inscription.html">Inscription</a>
+      <a class="btn btn-outline-light me-2" href="connexion.html">Connexion</a>
+      <a class="btn btn-primary" href="inscription.html">Inscription</a>
     <% } %>
   </div>
 </header>

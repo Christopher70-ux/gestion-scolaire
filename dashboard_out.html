@@ -7,19 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard | MonApp</title>
 
-  <link rel="icon" type="image/png" href="/monapp/assets/images/favicon.ico">
-  <link rel="stylesheet" href="/monapp/assets/libs/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/monapp/assets/libs/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="/monapp/assets/libs/apexcharts/apexcharts.css">
-  <link rel="stylesheet" href="/monapp/assets/libs/flatpickr/flatpickr.min.css">
-  <link rel="stylesheet" href="/monapp/assets/css/main.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.ico">
+  <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/libs/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/libs/apexcharts/apexcharts.css">
+  <link rel="stylesheet" href="assets/libs/flatpickr/flatpickr.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   
 
 
 <div class="sidebar-wrapper" id="sidebar">
-  <a href="/monapp/dashboard" class="sidebar-brand">
+  <a href="dashboard" class="sidebar-brand">
     <i class="bi bi-asterisk"></i>
     <span>Spark Admin</span>
   </a>
@@ -29,7 +29,7 @@
       <div class="sidebar-menu-title">Menu</div>
       <ul class="sidebar-menu-list">
         <li class="sidebar-menu-item">
-          <a href="/monapp/dashboard" class="sidebar-menu-link active" id="menu-overview">
+          <a href="dashboard" class="sidebar-menu-link active" id="menu-overview">
             <i class="bi bi-grid-fill"></i>
             <span>Dashboard</span>
           </a>
@@ -41,25 +41,25 @@
       <div class="sidebar-menu-title">Gestion</div>
       <ul class="sidebar-menu-list">
         <li class="sidebar-menu-item">
-          <a href="/monapp/tables-etudiants" class="sidebar-menu-link " id="menu-etudiants">
+          <a href="tables-etudiants" class="sidebar-menu-link " id="menu-etudiants">
             <i class="bi bi-people-fill"></i>
             <span>Étudiants</span>
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="/monapp/tables-cours" class="sidebar-menu-link " id="menu-cours">
+          <a href="tables-cours" class="sidebar-menu-link " id="menu-cours">
             <i class="bi bi-book-fill"></i>
             <span>Cours</span>
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="/monapp/tables-notes" class="sidebar-menu-link " id="menu-notes">
+          <a href="tables-notes" class="sidebar-menu-link " id="menu-notes">
             <i class="bi bi-clipboard-data-fill"></i>
             <span>Notes</span>
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="/monapp/tables-bulletins" class="sidebar-menu-link " id="menu-bulletins">
+          <a href="tables-bulletins" class="sidebar-menu-link " id="menu-bulletins">
             <i class="bi bi-file-earmark-text-fill"></i>
             <span>Bulletins</span>
           </a>
@@ -71,19 +71,19 @@
       <div class="sidebar-menu-title">Divers</div>
       <ul class="sidebar-menu-list">
         <li class="sidebar-menu-item">
-          <a href="/monapp/ui-forms" class="sidebar-menu-link " id="menu-forms">
+          <a href="ui-forms" class="sidebar-menu-link " id="menu-forms">
             <i class="bi bi-ui-checks-grid"></i>
             <span>Formulaires</span>
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="/monapp/ui-buttons" class="sidebar-menu-link " id="menu-buttons">
+          <a href="ui-buttons" class="sidebar-menu-link " id="menu-buttons">
             <i class="bi bi-square"></i>
             <span>Boutons</span>
           </a>
         </li>
         <li class="sidebar-menu-item">
-          <a href="/monapp/page-blank" class="sidebar-menu-link " id="menu-blank">
+          <a href="page-blank" class="sidebar-menu-link " id="menu-blank">
             <i class="bi bi-file-earmark"></i>
             <span>Vide</span>
           </a>
@@ -93,7 +93,7 @@
   </div>
 
   <div class="sidebar-profile">
-    <img src="/monapp/assets/images/avatar.png" alt="Administrator" class="sidebar-profile-img"
+    <img src="assets/images/avatar.png" alt="Administrator" class="sidebar-profile-img"
       onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop'">
     <div class="sidebar-profile-info">
       <div class="sidebar-profile-name">Administrator</div>
@@ -144,17 +144,17 @@
     
       <div class="dropdown ms-2">
         <button class="navbar-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="profile-dropdown">
-          <img src="/monapp/assets/images/avatar.png" alt="Profile Image" class="navbar-profile-img">
+          <img src="assets/images/avatar.png" alt="Profile Image" class="navbar-profile-img">
           <span class="navbar-profile-name">Administrateur</span>
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown">
-          <li><a class="dropdown-item" href="/monapp/dashboard"><i class="bi bi-grid"></i> Dashboard</a></li>
+          <li><a class="dropdown-item" href="dashboard"><i class="bi bi-grid"></i> Dashboard</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profil</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Paramètres</a></li>
           <li><hr class="dropdown-divider"></li>
           <li>
-            <form action="/monapp/logout" method="post" class="d-inline w-100">
+            <form action="logout" method="post" class="d-inline w-100">
               <button type="submit" class="dropdown-item text-danger w-100 text-start border-0 bg-transparent">
                 <i class="bi bi-box-arrow-right"></i> Déconnexion
               </button>
@@ -217,8 +217,8 @@
 
   </div>
 
-  <script src="/monapp/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/monapp/assets/libs/apexcharts/apexcharts.min.js"></script>
-  <script src="/monapp/assets/js/dashboard.js"></script>
+  <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
 </body>
 </html>

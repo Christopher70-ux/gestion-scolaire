@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new URLSearchParams(new FormData(form));
             
             // ⚠️ ADAPTE l'URL à ton contextPath
-            const response = await fetch('/monapp/connexion', {
+            const response = await fetch('/connexion', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: formData.toString()

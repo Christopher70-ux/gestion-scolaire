@@ -5,7 +5,7 @@
   },
   "deploy": {
     "startCommand": "catalina.sh run",
-    "healthcheckPath": "/monapp",
+    "healthcheckPath": "/",
     "healthcheckTimeout": 100,
     "restartPolicyType": "ON_FAILURE"
   }

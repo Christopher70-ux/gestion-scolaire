@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1. Envoyer les données au Servlet
             const formData = new URLSearchParams(new FormData(form));
             
-            const response = await fetch('/monapp/inscription', {   // ← adapte l'URL !
+            const response = await fetch('/inscription', {   // ← adapte l'URL !
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: formData.toString()

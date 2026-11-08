@@ -1,8 +1,8 @@
 // assets/js/notes.js
 
-const API_NOTES = '/monapp/api/notes';
-const API_ETUDIANTS = '/monapp/api/etudiants';
-const API_COURS = '/monapp/api/cours';
+const API_NOTES = '/api/notes';
+const API_ETUDIANTS = '/api/etudiants';
+const API_COURS = '/api/cours';
 
 let idASupprimer = null;
 let idAModifier = null;
