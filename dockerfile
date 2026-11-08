@@ -22,7 +22,7 @@ FROM tomcat:10.1-jdk21-temurin
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copier le WAR dans le contexte attendu par le front /monapp
-COPY --from=builder /build/target/monapp.war /usr/local/tomcat/webapps/monapp.war
+COPY --from=builder /build/target/monapp.war /usr/local/tomcat/webapps/ROOT.war
 
 # Exposer le port
 EXPOSE 8080
