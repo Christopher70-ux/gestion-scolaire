@@ -232,16 +232,19 @@ async function ouvrirModification(id) {
 document.getElementById('confirmEdit').addEventListener('click', async () => {
     if (!idAModifier) return;
 
-    const params = new URLSearchParams({
-        note: document.getElementById('editNote').value,
-        dateNote: document.getElementById('editDate').value
-    });
+    const note = document.getElementById('editNote').value.trim();
+    const dateNote = document.getElementById('editDate').value.trim();
+
+    if (note === '') {
+        afficherMessage('La note est obligatoire', false);
+        return;
+    }
+
+    const params = new URLSearchParams({ note, dateNote });
 
     try {
-        const resp = await fetch(`${API_NOTES}/${idAModifier}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: params.toString()
+        const resp = await fetch(`${API_NOTES}/${idAModifier}?${params}`, {
+            method: 'PUT'
         });
         const data = await resp.json();
 

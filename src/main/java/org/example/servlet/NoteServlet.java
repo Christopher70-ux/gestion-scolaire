@@ -1,21 +1,22 @@
 package org.example.servlet;
 
-import com.google.gson.Gson;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.example.dao.NoteDAO;
 import org.example.modele.Note;
 import org.example.utils.GsonConfig;
+
+import com.google.gson.Gson;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet("/api/notes/*")
 public class NoteServlet extends HttpServlet {
@@ -81,7 +82,8 @@ public class NoteServlet extends HttpServlet {
 
             String dateStr = req.getParameter("dateNote");
             LocalDate date = (dateStr != null && !dateStr.isEmpty())
-                    ? LocalDate.parse(dateStr) : null;
+                    ? LocalDate.parse(dateStr)
+                    : null;
 
             // Vérifier doublon (1 note par étudiant/cours)
             if (dao.trouverParEtudiantEtCours(etudiantId, coursId).isPresent()) {
@@ -134,10 +136,24 @@ public class NoteServlet extends HttpServlet {
                 return;
             }
 
-            double note = Double.parseDouble(req.getParameter("note"));
+            String noteParam = req.getParameter("note");
+            if (noteParam == null || noteParam.isBlank()) {
+                resp.setStatus(400);
+                writeJson(resp, Map.of("success", false, "message", "La note est obligatoire"));
+                return;
+            }
+
+            double note = Double.parseDouble(noteParam.trim());
             String dateStr = req.getParameter("dateNote");
-            LocalDate date = (dateStr != null && !dateStr.isEmpty())
-                    ? LocalDate.parse(dateStr) : null;
+            LocalDate date = (dateStr != null && !dateStr.isBlank())
+                    ? LocalDate.parse(dateStr.trim())
+                    : null;
+
+            if (!Double.isFinite(note) || note < 0 || note > 20) {
+                resp.setStatus(400);
+                writeJson(resp, Map.of("success", false, "message", "La note doit être comprise entre 0 et 20"));
+                return;
+            }
 
             boolean ok = dao.modifier(id, note, date);
 
