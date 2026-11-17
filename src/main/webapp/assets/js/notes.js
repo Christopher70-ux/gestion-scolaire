@@ -240,11 +240,16 @@ document.getElementById('confirmEdit').addEventListener('click', async () => {
         return;
     }
 
-    const params = new URLSearchParams({ note, dateNote });
+    const params = {
+        note,
+        dateNote: dateNote || null
+    };
 
     try {
-        const resp = await fetch(`${API_NOTES}/${idAModifier}?${params}`, {
-            method: 'PUT'
+        const resp = await fetch(`${API_NOTES}/${idAModifier}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(params)
         });
         const data = await resp.json();
 

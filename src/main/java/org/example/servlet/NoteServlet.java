@@ -11,6 +11,8 @@ import org.example.modele.Note;
 import org.example.utils.GsonConfig;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -136,7 +138,23 @@ public class NoteServlet extends HttpServlet {
                 return;
             }
 
+            // Essayer d'obtenir les paramètres depuis le corps JSON, sinon utiliser les paramètres classiques
             String noteParam = req.getParameter("note");
+            String dateStr = req.getParameter("dateNote");
+
+            if (req.getContentType() != null
+                    && req.getContentType().toLowerCase().startsWith("application/json")) {
+                try (var reader = req.getReader()) {
+                    JsonObject body = JsonParser.parseReader(reader).getAsJsonObject();
+                    if (body.has("note") && !body.get("note").isJsonNull()) {
+                        noteParam = body.get("note").getAsString();
+                    }
+                    if (body.has("dateNote") && !body.get("dateNote").isJsonNull()) {
+                        dateStr = body.get("dateNote").getAsString();
+                    }
+                }
+            }
+
             if (noteParam == null || noteParam.isBlank()) {
                 resp.setStatus(400);
                 writeJson(resp, Map.of("success", false, "message", "La note est obligatoire"));
@@ -144,7 +162,6 @@ public class NoteServlet extends HttpServlet {
             }
 
             double note = Double.parseDouble(noteParam.trim());
-            String dateStr = req.getParameter("dateNote");
             LocalDate date = (dateStr != null && !dateStr.isBlank())
                     ? LocalDate.parse(dateStr.trim())
                     : null;
