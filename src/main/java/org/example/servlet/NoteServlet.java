@@ -138,7 +138,8 @@ public class NoteServlet extends HttpServlet {
                 return;
             }
 
-            // Essayer d'obtenir les paramètres depuis le corps JSON, sinon utiliser les paramètres classiques
+            // Essayer d'obtenir les paramètres depuis le corps JSON, sinon utiliser les
+            // paramètres classiques
             String noteParam = req.getParameter("note");
             String dateStr = req.getParameter("dateNote");
 
